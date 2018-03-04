@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
 	}
 
 	//Can probably refactor this to use tags
-	private void OnCollisionStay2D(Collision2D collision){
+	private void OnCollisionEnter2D(Collision2D collision){
 
 		Floor floor = collision.gameObject.GetComponent<Floor>();
 
