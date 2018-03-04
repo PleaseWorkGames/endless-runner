@@ -7,13 +7,18 @@ public class TransformableLeft : MonoBehaviour
 	private Transform transform;
 	
 	// Use this for initialization
-	void Start () {
-//		var curTransform : Transform;
-//		curTransform = gameObject.GetComponent(Transform);		
+	void Start ()
+	{
+		transform = gameObject.transform;
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+	{
+		Vector3 leftPositionDecrement = new Vector3(-1.0f, 0, 0);
+
+		transform.position += leftPositionDecrement;
 		
+//		Debug.Log("The Transform position x is: " + transform.position.x);
 	}
 }
