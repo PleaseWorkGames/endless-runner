@@ -23,7 +23,6 @@ public class PlayerController : MonoBehaviour
 
 		if(!jumping){
 			rb.AddForce(new Vector2(0,1*jumpMultiplier));
-			jumping = true;
 		}
 	}
 
@@ -34,6 +33,15 @@ public class PlayerController : MonoBehaviour
 
 		if(floor != null){
 			jumping = false;
+		}
+
+	}
+
+	private void OnCollisionExit2D(Collision2D collision){
+		Floor floor = collision.gameObject.GetComponent<Floor>();
+
+		if(floor != null){
+			jumping = true;
 		}
 
 	}
