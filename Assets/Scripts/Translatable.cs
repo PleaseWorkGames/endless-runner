@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-public class TransformableLeft : MonoBehaviour
+public class Translatable : MonoBehaviour
 {
 	private Transform transform;
 	
-	public float transformXDistance = -1.0f;
+	public TranslatableValue translateDistance;
 	
 	// Use this for initialization
 	void Start ()
@@ -18,6 +18,6 @@ public class TransformableLeft : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		transform.Translate(Time.deltaTime * transformXDistance, 0, 0);
+		transform.Translate(Time.deltaTime * translateDistance.x, 0, 0);
 	}
 }
