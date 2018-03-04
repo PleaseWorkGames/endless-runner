@@ -10,7 +10,7 @@ public class Player : MonoBehaviour {
 
 	private PlayerController controller;
 
-	private BoxCollider2D collider;
+	private BoxCollider2D bc;
 
 	// Use this for initialization
 	void Start () {
@@ -34,20 +34,28 @@ public class Player : MonoBehaviour {
 			initRigidBody();			
 		}
 
-		collider = gameObject.GetComponent<BoxCollider2D>() as BoxCollider2D;
+		bc = gameObject.GetComponent<BoxCollider2D>() as BoxCollider2D;
+		if(bc == null){
+			bc = initBoxCollider();
+		}
 	}
 
-	Rigidbody2D initRigidBody(){
+	private Rigidbody2D initRigidBody(){
 		Rigidbody2D rb = gameObject.AddComponent(typeof(Rigidbody2D)) as Rigidbody2D;
 
 		return rb;
+	}
+
+	private BoxCollider2D initBoxCollider(){
+		BoxCollider2D bc = gameObject.AddComponent(typeof(BoxCollider2D)) as BoxCollider2D;
+
+		return bc;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
 		if(controls.jump()){
-			Debug.Log("Jump Button Pressed!");
 			controller.jump();
 		}
 		

@@ -22,9 +22,19 @@ public class PlayerController : MonoBehaviour
 	public void jump() {
 
 		if(!jumping){
-			Debug.Log("Jump!");
 			rb.AddForce(new Vector2(0,1*jumpMultiplier));
 			jumping = true;
 		}
+	}
+
+	//Can probably refactor this to use tags
+	private void OnCollisionStay2D(Collision2D collision){
+
+		Floor floor = collision.gameObject.GetComponent<Floor>();
+
+		if(floor != null){
+			jumping = false;
+		}
+
 	}
 }
