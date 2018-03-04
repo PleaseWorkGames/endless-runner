@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class TransformableLeft : MonoBehaviour
 {
 	private Transform transform;
+	
+	public float transformXDistance = -1.0f;
 	
 	// Use this for initialization
 	void Start ()
@@ -15,10 +18,6 @@ public class TransformableLeft : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		Vector3 leftPositionDecrement = new Vector3(-1.0f, 0, 0);
-
-		transform.position += leftPositionDecrement;
-		
-//		Debug.Log("The Transform position x is: " + transform.position.x);
+		transform.Translate(Time.deltaTime * transformXDistance, 0, 0);
 	}
 }

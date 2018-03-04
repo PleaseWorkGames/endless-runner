@@ -198,6 +198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e87c43095abc64acabf12723ead4a357, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  transformXDistance: -1
 --- !u!1 &339089885
 GameObject:
   m_ObjectHideFlags: 0
@@ -284,6 +285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ce252847166748d6920ae2c4855cfcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpMultiplier: 100
 --- !u!50 &339089889
 Rigidbody2D:
   serializedVersion: 4
