@@ -4,15 +4,27 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-	private Rigidbody2D player;
+	private Rigidbody2D rb;
+
+	public float jumpMultiplier = 100;
+
+	private bool jumping = false;
 	
 	// Use this for initialization
 	void Start () {
-		player = GetComponent<Rigidbody2D>();
+		rb = gameObject.GetComponent<Rigidbody2D>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		player.velocity = transform.right * 10.0f;
+	}
+
+	public void jump() {
+
+		if(!jumping){
+			Debug.Log("Jump!");
+			rb.AddForce(new Vector2(0,1*jumpMultiplier));
+			jumping = true;
+		}
 	}
 }
