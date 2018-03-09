@@ -30,7 +30,11 @@ public class FloorChunkGenerator : MonoBehaviour {
 
 			float distance = Random.value * maxDistance;
 
-			newFloor.transform.localPosition = new Vector2(floor.transform.localScale.x/2 - boxCollider.size.x/2 + distance,floor.transform.localPosition.y);
+			//Need to create an offset since it's created in the middle of the parent object
+			EdgeCollider2D ec = newFloor.GetComponent<EdgeCollider2D>() as EdgeCollider2D;
+			float offset = Vector2.Distance(ec.points[0], ec.points[ec.points.Length -1])/2;
+
+			newFloor.transform.localPosition = new Vector2(offset - boxCollider.size.x + distance,floor.transform.localPosition.y);
 
 			newFloor.translatableValue = translatableValue;
 		} 

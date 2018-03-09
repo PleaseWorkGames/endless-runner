@@ -4,11 +4,7 @@ using UnityEngine;
 
 public class Floor : MonoBehaviour {
 
-	private BoxCollider2D bc;
-
 	private Rigidbody2D rb;
-
-	private SpriteRenderer spriteRenderer;
 
 	private Translatable translatable;
 
@@ -20,16 +16,6 @@ public class Floor : MonoBehaviour {
 		rb =gameObject.GetComponent<Rigidbody2D>();
 		if(rb == null){
 			rb = initRigidBody();			
-		}
-
-		bc = gameObject.GetComponent<BoxCollider2D>() as BoxCollider2D;
-		if(bc == null){
-			bc = initBoxCollider();
-		}
-
-		spriteRenderer = gameObject.GetComponent<SpriteRenderer>() as SpriteRenderer;
-		if(spriteRenderer == null){
-			spriteRenderer = initSpriteRenderer();
 		}
 
 		translatable = gameObject.GetComponent<Translatable>() as Translatable;
@@ -45,20 +31,6 @@ public class Floor : MonoBehaviour {
 		rb.bodyType = RigidbodyType2D.Kinematic;
 
 		return rb;
-	}
-
-	private BoxCollider2D initBoxCollider(){
-		BoxCollider2D bc = gameObject.AddComponent(typeof(BoxCollider2D)) as BoxCollider2D;
-
-		return bc;
-	}
-
-	private SpriteRenderer initSpriteRenderer(){
-		SpriteRenderer spriteRenderer = gameObject.AddComponent(typeof(SpriteRenderer)) as SpriteRenderer;
-
-		spriteRenderer.sprite = Resources.Load<Sprite>("Sprites/Floor");
-
-		return spriteRenderer;
 	}
 
 	// Update is called once per frame
