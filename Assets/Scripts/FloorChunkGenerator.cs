@@ -8,6 +8,8 @@ public class FloorChunkGenerator : MonoBehaviour {
 
 	public TranslatableValue translatableValue;
 
+	public float maxDistance = 1.5f;
+
 	private BoxCollider2D boxCollider;
 
 	// Use this for initialization
@@ -26,8 +28,9 @@ public class FloorChunkGenerator : MonoBehaviour {
 		if(other.gameObject.GetComponent<Floor>() !=null){
 			Floor newFloor = Instantiate(floor, new Vector2(0,0), transform.rotation,  GetComponentInParent<Transform>());
 
-			//I have no idea how I came up with this formula other than trial and error
-			newFloor.transform.localPosition = new Vector2(floor.transform.localScale.x/2 - boxCollider.size.x/2,floor.transform.localPosition.y);
+			float distance = Random.value * maxDistance;
+
+			newFloor.transform.localPosition = new Vector2(floor.transform.localScale.x/2 - boxCollider.size.x/2 + distance,floor.transform.localPosition.y);
 
 			newFloor.translatableValue = translatableValue;
 		} 
