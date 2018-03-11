@@ -20,4 +20,9 @@ public class PlayerControl : MonoBehaviour {
 	public bool jump(){
 		return active && Input.GetKeyDown(KeyCode.UpArrow);
 	}
+
+	public bool hasFallen()
+	{
+		return active && gameObject.transform.position.y < -7;
+	}
 }

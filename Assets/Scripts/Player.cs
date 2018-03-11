@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour {
 
@@ -51,15 +52,18 @@ public class Player : MonoBehaviour {
 
 		return bc;
 	}
-	
-	// Update is called once per frame
-	void Update () {
 
+	/**
+	 * Check for whether player is jumping, or has fallen 
+	 */
+	void Update () {
 		if(controls.jump()){
 			controller.jump();
 		}
-		
-	}
 
-	
+		if (controls.hasFallen()) {
+			// reload scene
+			SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+		}
+	}
 }
