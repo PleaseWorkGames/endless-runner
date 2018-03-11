@@ -27,8 +27,8 @@ public class FloorChunkGenerator : MonoBehaviour {
 		// create new floor as soon as previous floor instance leaves box collider generator 
 		if(other.gameObject.GetComponent<Floor>() != null){
 			Floor newFloor = Instantiate(
-				floor, 
-				new Vector2(0,0), 
+				floor,
+				new Vector2(0,0),
 				transform.rotation, 
 				GetComponentInParent<Transform>()
 			);
@@ -45,6 +45,6 @@ public class FloorChunkGenerator : MonoBehaviour {
 			);
 
 			newFloor.translatableValue = translatableValue;
-		} 
+		}
 	}
 }
