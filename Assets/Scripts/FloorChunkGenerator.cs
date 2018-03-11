@@ -6,7 +6,7 @@ public class FloorChunkGenerator : MonoBehaviour {
 
 	public Floor floor;
 
-	public TranslatableValue translatableValue;
+	public TranslatableValue worldTranslatableValue;
 
 	public float maxDistance = 1.5f;
 
@@ -38,7 +38,7 @@ public class FloorChunkGenerator : MonoBehaviour {
 
 		float distance = Random.value * maxDistance;
 
-		//Need to create an offset since it's created in the middle of the parent object
+		// Need to create an offset since it's created in the middle of the parent object
 		EdgeCollider2D ec = newFloor.GetComponent<EdgeCollider2D>() as EdgeCollider2D;
 		float offset = Vector2.Distance(ec.points[0], ec.points[ec.points.Length -1]) / 2;
 
@@ -47,6 +47,6 @@ public class FloorChunkGenerator : MonoBehaviour {
 			floor.transform.localPosition.y
 		);
 
-		newFloor.translatableValue = translatableValue;
+		newFloor.translatableValue = worldTranslatableValue;
 	}
 }
