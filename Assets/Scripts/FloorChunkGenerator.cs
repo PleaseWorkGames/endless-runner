@@ -32,7 +32,7 @@ public class FloorChunkGenerator : MonoBehaviour {
 		Floor newFloor = Instantiate(
 			floor,
 			new Vector2(0,0),
-			transform.rotation, 
+			transform.rotation,
 			GetComponentInParent<Transform>()
 		);
 
@@ -40,10 +40,10 @@ public class FloorChunkGenerator : MonoBehaviour {
 
 		//Need to create an offset since it's created in the middle of the parent object
 		EdgeCollider2D ec = newFloor.GetComponent<EdgeCollider2D>() as EdgeCollider2D;
-		float offset = Vector2.Distance(ec.points[0], ec.points[ec.points.Length -1]) /2;
+		float offset = Vector2.Distance(ec.points[0], ec.points[ec.points.Length -1]) / 2;
 
 		newFloor.transform.localPosition = new Vector2(
-			offset - boxCollider.size.x + distance, 
+			offset - boxCollider.size.x + distance,
 			floor.transform.localPosition.y
 		);
 
