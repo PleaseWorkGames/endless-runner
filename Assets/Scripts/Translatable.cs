@@ -9,6 +9,8 @@ public class Translatable : MonoBehaviour
 	
 	public TranslatableValue translateDistance;
 	
+	public enum translatableType {Foreground, Background}
+	
 	// Use this for initialization
 	void Start ()
 	{
@@ -18,6 +20,6 @@ public class Translatable : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		transform.Translate(Time.deltaTime * translateDistance.x, 0, 0);
+		transform.Translate(Time.deltaTime * translateDistance.foregroundX, 0, 0);
 	}
 }
