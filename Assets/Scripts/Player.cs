@@ -61,9 +61,21 @@ public class Player : MonoBehaviour {
 			controller.jump();
 		}
 
-		if (controls.hasFallen()) {
+		if (controls.hasFallen() && !controls.hasRecordedFall()) {
+			controls.recordFall();
 			// reload scene
-			SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+			StartCoroutine(ReloadSceneAsynchronously()); // asynchronous implementation
+//			SceneManager.LoadScene(SceneManager.GetActiveScene().name); // synchronous implementation
+		}
+	}
+	
+	IEnumerator ReloadSceneAsynchronously()
+	{
+		AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
+
+		while (!asyncLoad.isDone)
+		{
+			yield return null;
 		}
 	}
 }
