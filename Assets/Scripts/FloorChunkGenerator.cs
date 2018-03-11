@@ -29,24 +29,21 @@ public class FloorChunkGenerator : MonoBehaviour {
 			return;
 		}
 
-		Debug.Log(other.bounds.size);
+		float distance = Random.value * maxDistance;
 		
+		//Need to calculate offset so the floor is generated directly after the previous
+		EdgeCollider2D ec = floor.GetComponent<EdgeCollider2D>() as EdgeCollider2D;
+		float offset = ec.bounds.extents.x - boxCollider.size.x/2 + distance;
+
 		Floor newFloor = Instantiate(
 			floor,
-			new Vector2(other.bounds.max.x +  4.25f - boxCollider.size.x/2,other.bounds.max.y),
+			new Vector2(
+				other.bounds.max.x + offset,
+				other.bounds.max.y
+			),
 			transform.rotation,
 			GetComponentInParent<Transform>()
 		);
-
-		float distance = Random.value * maxDistance;
-
-		//Need to calculate offset so the floor is generated directly after the previous
-		EdgeCollider2D ec = newFloor.GetComponent<EdgeCollider2D>() as EdgeCollider2D;
-		float offset = ec.bounds.extents.x - boxCollider.size.x/2 + distance;
-
-		newFloor.transform.position = new Vector2(
-			other.bounds.max.x + offset + distance,
-			other.bounds.max.y);
 
 		newFloor.translatableValue = worldTranslatableValue;
 	}
