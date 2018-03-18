@@ -9,14 +9,19 @@ public class PlayerController : MonoBehaviour
 	public float jumpMultiplier = 100;
 
 	private bool jumping = false;
+
+	private Vector2 initPosition;
 	
 	// Use this for initialization
 	void Start () {
 		rb = gameObject.GetComponent<Rigidbody2D>();
+
+		initPosition = gameObject.transform.localPosition;
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		rubberBand();
 	}
 
 	public void jump() {
@@ -24,6 +29,16 @@ public class PlayerController : MonoBehaviour
 		if(!jumping){
 			rb.AddForce(new Vector2(0,1*jumpMultiplier));
 			jumping = true;
+		}
+	}
+
+	// Gradually snap the player back to it's starting position
+	public void rubberBand() {
+		if(gameObject.transform.localPosition.x < initPosition.x){
+			rb.AddForce(new Vector2(1,0));
+		}
+		if(gameObject.transform.localPosition.x > initPosition.x){
+			rb.AddForce(new Vector2(.5f,0));
 		}
 	}
 
