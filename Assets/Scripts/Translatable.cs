@@ -4,19 +4,11 @@ using UnityEngine;
 
 public class Translatable : MonoBehaviour
 {
-	private Transform transform;
-	
 	public enum TranslateType {Foreground = 0, Background = 1};
 	
 	public TranslatableValue translateDistance;
 	
 	public TranslateType translateType = TranslateType.Foreground;
-	
-	// Use this for initialization
-	void Start ()
-	{
-		transform = gameObject.transform;
-	}
 	
 	// Update is called once per frame
 	void Update ()
@@ -26,6 +18,6 @@ public class Translatable : MonoBehaviour
 			? translateDistance.foregroundX 
 			: translateDistance.backgroundX;
 		
-		transform.Translate(Time.deltaTime * translateDistanceForThisType, 0, 0);
+		gameObject.transform.Translate(Time.deltaTime * translateDistanceForThisType, 0, 0);
 	}
 }
