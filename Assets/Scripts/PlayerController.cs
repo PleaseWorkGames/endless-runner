@@ -27,18 +27,15 @@ public class PlayerController : MonoBehaviour
 	public void jump() {
 
 		if(!jumping){
-			rb.AddForce(new Vector2(0,1*jumpMultiplier));
+			rb.AddForce(new Vector2(.1f*jumpMultiplier,1*jumpMultiplier));
 			jumping = true;
 		}
 	}
 
-	// Gradually snap the player back to it's starting position
+	// Gradually snap the player back to it's starting position if fallen behind
 	public void rubberBand() {
 		if(gameObject.transform.localPosition.x < initPosition.x){
-			rb.AddForce(new Vector2(1,0));
-		}
-		if(gameObject.transform.localPosition.x > initPosition.x){
-			rb.AddForce(new Vector2(.5f,0));
+			rb.AddForce(new Vector2(1.25f,0));
 		}
 	}
 

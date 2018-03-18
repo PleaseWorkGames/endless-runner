@@ -1045,7 +1045,7 @@ MonoBehaviour:
   - {fileID: 114072543735569028, guid: 66fb7c0efdc42794395e8df9b25d6714, type: 2}
   - {fileID: 114458263706495276, guid: c5bd0a0259fff5d448110c5a7a064fed, type: 2}
   worldTranslatableValue: {fileID: 1330197335}
-  maxGapDistance: 1.5
+  maxGapDistance: 1.25
   minGapDistance: 0.5
 --- !u!1 &1184864270
 GameObject:
