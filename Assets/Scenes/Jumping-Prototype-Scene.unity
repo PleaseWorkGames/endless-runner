@@ -1041,7 +1041,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e607836a2ccd714db62a8d8d18eaa72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floor: {fileID: 114215197029576124, guid: 2ce3d54bf68f96a4eb49fa5c3e204462, type: 2}
+  floors:
+  - {fileID: 114072543735569028, guid: 66fb7c0efdc42794395e8df9b25d6714, type: 2}
+  - {fileID: 114458263706495276, guid: c5bd0a0259fff5d448110c5a7a064fed, type: 2}
   worldTranslatableValue: {fileID: 1330197335}
   maxGapDistance: 1.5
   minGapDistance: 0.5
