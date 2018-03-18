@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour {
 
@@ -14,14 +13,16 @@ public class Player : MonoBehaviour {
 	private BoxCollider2D bc;
 
 	// Use this for initialization
-	void Start () {
-
+	void Start ()
+	{
 		//Use controls if assigned in the editor, or create a new one if empty
 		controls = gameObject.GetComponent<PlayerControl>();
 		if(controls == null){
 			controls = gameObject.AddComponent(typeof(PlayerControl)) as PlayerControl;
-			controls.active = true;
 		}
+		
+		// set controls to active now that we know they definitively exist
+		controls.active = true;
 
 		//Use controller if assigned in the editor, or create a new one if empty
 		controller = gameObject.GetComponent<PlayerController>();
@@ -61,21 +62,8 @@ public class Player : MonoBehaviour {
 			controller.jump();
 		}
 
-		if (controls.hasFallen() && !controls.hasRecordedFall()) {
-			controls.recordFall();
-			// reload scene
-			StartCoroutine(ReloadSceneAsynchronously()); // asynchronous implementation
-//			SceneManager.LoadScene(SceneManager.GetActiveScene().name); // synchronous implementation
-		}
-	}
-	
-	IEnumerator ReloadSceneAsynchronously()
-	{
-		AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
-
-		while (!asyncLoad.isDone)
-		{
-			yield return null;
+		if (controls.hasFallen()) {
+			World.reloadScene();
 		}
 	}
 }

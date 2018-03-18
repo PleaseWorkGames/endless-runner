@@ -1,16 +1,37 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class World : MonoBehaviour {
+public class World : MonoBehaviour
+{
+	private static World instance;
+	
+	private static bool isInProcessOfReloadingAlready = false;
 
-	// Use this for initialization
-	void Start () {
+	public void Start()
+	{
+		instance = this;
+	}
+
+	public static void reloadScene()
+	{
+		if (isInProcessOfReloadingAlready) {
+			return;
+		}
 		
+		isInProcessOfReloadingAlready = true;
+		
+		instance.StartCoroutine("ReloadSceneAsynchronously");
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
+	IEnumerator ReloadSceneAsynchronously()
+	{
+		AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
+
+		while (!asyncLoad.isDone)
+		{
+			yield return null;
+		}
 	}
 }
