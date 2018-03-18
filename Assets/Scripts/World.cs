@@ -33,5 +33,10 @@ public class World : MonoBehaviour
 		{
 			yield return null;
 		}
+
+		// TODO - this isn't being reached (asyncLoad.isDone is never true within this method body
+		// reloaded
+		Debug.Log("setting isInProcessOfReloadingAlready to false");
+		isInProcessOfReloadingAlready = false;
 	}
 }
