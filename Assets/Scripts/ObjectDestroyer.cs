@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FloorChunkDestroyer : MonoBehaviour {
+public class ObjectDestroyer : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
@@ -14,10 +14,10 @@ public class FloorChunkDestroyer : MonoBehaviour {
 		
 	}
 
-	//TODO: Refactor to use tags
+	/**
+	 * Destroy anything that touches this box collider
+	 */
 	void OnTriggerExit2D(Collider2D other) {
-		if(other.gameObject.GetComponent<Floor>() !=null){
-			Destroy(other.gameObject); 
-		}
+		Destroy(other.gameObject);
 	}
 }
