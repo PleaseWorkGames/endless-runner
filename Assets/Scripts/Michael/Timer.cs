@@ -5,12 +5,17 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour {
 
+	private static float time = 0.0f;
+	
 	public Text timeText;
-	public static float time = 0.0f;
 
-	// Update is called once per frame
+	public int precision = 2;
+
 	void Update () {
 		time += Time.deltaTime;
-		timeText.text = "Time: " + (Mathf.RoundToInt(time)).ToString("0");
+
+		float precisionModifier = Mathf.Pow(10, precision);
+		
+		timeText.text = "Time: " + Mathf.Round(time * precisionModifier) / precisionModifier;
 	}
 }
