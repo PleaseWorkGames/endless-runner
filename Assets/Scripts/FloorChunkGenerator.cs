@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FloorChunkGenerator : MonoBehaviour {
 
-	public Floor floor;
+	public Floor[] floors;
 
 	public TranslatableValue worldTranslatableValue;
 
@@ -32,6 +32,10 @@ public class FloorChunkGenerator : MonoBehaviour {
 		}
 
 		float distance = Random.Range(minGapDistance, maxGapDistance);
+
+		int randomIndex = Mathf.RoundToInt(Random.value*(floors.Length-1));
+
+		Floor floor = floors[randomIndex];
 		
 		Floor newFloor = Instantiate(
 			floor,
@@ -40,12 +44,13 @@ public class FloorChunkGenerator : MonoBehaviour {
 			GetComponentInParent<Transform>()
 		);
 		//Need to calculate offset so the floor is generated directly after the previous
-		EdgeCollider2D ec = newFloor.GetComponent<EdgeCollider2D>() as EdgeCollider2D;
-		float offset = ec.bounds.extents.x - boxCollider.size.x/2 + distance;
+		Collider2D ec = newFloor.GetComponent<Collider2D>() as Collider2D;
+
+		float offset = ec.bounds.extents.x - boxCollider.size.x/2*0 + distance;
 
 		newFloor.transform.position = new Vector2(
 				other.bounds.max.x + offset,
-				other.bounds.max.y
+				0
 		);
 
 
