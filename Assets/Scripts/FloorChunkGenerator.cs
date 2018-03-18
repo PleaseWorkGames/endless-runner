@@ -8,9 +8,9 @@ public class FloorChunkGenerator : MonoBehaviour {
 
 	public TranslatableValue worldTranslatableValue;
 
-	public float maxDistance = 1.5f;
+	public float maxGapDistance = 1.5f;
 
-	public float minDistance = 0.5f;
+	public float minGapDistance = 0.5f;
 
 	private BoxCollider2D boxCollider;
 
@@ -31,7 +31,7 @@ public class FloorChunkGenerator : MonoBehaviour {
 			return;
 		}
 
-		float distance = Random.Range(minDistance, maxDistance);
+		float distance = Random.Range(minGapDistance, maxGapDistance);
 		
 		Floor newFloor = Instantiate(
 			floor,
