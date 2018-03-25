@@ -20,8 +20,8 @@ public class ObjectDestroyer : MonoBehaviour {
 	void OnTriggerExit2D(Collider2D other) {
 		Destroy(other.gameObject);
 
-		// TODO - ensure this works 
-		if (other.gameObject.GetType() == typeof(Player)) {
+		// if object destroyed was that of Player, reload scene
+		if (other.gameObject.CompareTag("Player")) {
 			World.reloadScene();
 		}
 	}
