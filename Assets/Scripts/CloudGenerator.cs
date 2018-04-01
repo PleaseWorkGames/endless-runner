@@ -1,8 +1,13 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class CloudGenerator : MonoBehaviour {
+	
+	private const int BLAZE_IT = 420;
+	
 	/**
 	 * Instance of Cloud from which to reproduce/instantiate dynamically at runtime
 	 */
@@ -25,19 +30,32 @@ public class CloudGenerator : MonoBehaviour {
 		int numberOfCloudsToGenerate = Mathf.RoundToInt(Random.value * 5);
 
 		for (var i = 0; i < numberOfCloudsToGenerate; i += 1) {
-			generateAndRandomlyPlaceCloudInstance();
+			generateAndPlaceCloudInstance();
 		}
 	}
 	
-	void Update () 
+	void Update ()
 	{
+		bool shouldGenerateNewCloudInstance = Random.Range(0, 1000) == BLAZE_IT;
+
+		if (!shouldGenerateNewCloudInstance) {
+			return;
+		}
 		
+		generateAndPlaceCloudInstance(1.1f);
 	}
 
-	private void generateAndRandomlyPlaceCloudInstance()
+	private void generateAndPlaceCloudInstance(float xPosition = 0.0f)
 	{
+		bool shouldRandomlyGenerateXPosition = Mathf.Approximately(xPosition, 0.0f);
+
+		if (shouldRandomlyGenerateXPosition) {
+			Debug.Log("Randomly generating xPosition");
+			xPosition = Random.Range(0f, 1.0f);
+		}
+		
 		Vector3 point = Camera.main.ViewportToWorldPoint(
-			new Vector3(Random.Range(0f, 1.0f), 0, Camera.main.nearClipPlane)
+			new Vector3(xPosition, 0, Camera.main.nearClipPlane)
 		);
 		
 		Cloud newCloud = Instantiate(
