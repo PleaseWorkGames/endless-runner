@@ -3,12 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CloudGenerator : MonoBehaviour {
-
-	/**
-	 * Registry of Cloud instances
-	 */
-	public Cloud[] clouds;
-	
 	/**
 	 * Instance of Cloud from which to reproduce/instantiate dynamically at runtime
 	 */
@@ -20,43 +14,45 @@ public class CloudGenerator : MonoBehaviour {
 
 	public float minGapDistance = 0.5f;
 
-	private BoxCollider2D boxCollider;
+	private float cloudYPosition;
+	
+	void Start ()
+	{
+		cloudYPosition = cloud.transform.position.y;
 
-	// Use this for initialization
-	void Start () {
-		boxCollider = gameObject.GetComponent<BoxCollider2D>();
+		moveInitialCloudOffCamera();
+		
+		int numberOfCloudsToGenerate = Mathf.RoundToInt(Random.value * 5);
+
+		for (var i = 0; i < numberOfCloudsToGenerate; i += 1) {
+			generateAndRandomlyPlaceCloudInstance();
+		}
 	}
 	
-	// Update is called once per frame
-	void Update () {
+	void Update () 
+	{
 		
 	}
 
-	//TODO: Refactor to use tags
-	void OnTriggerExit2D(Collider2D other){
-		// create new floor as soon as previous floor instance leaves box collider generator
-//		if (!other.gameObject.GetComponent<Floor>()) {
-//			return;
-//		}
-//
-//		float distance = Random.Range(minGapDistance, maxGapDistance);
-//		
-//		Floor newFloor = Instantiate(
-//			floor,
-//			new Vector2(0,0),
-//			transform.rotation,
-//			GetComponentInParent<Transform>()
-//		);
-//		//Need to calculate offset so the floor is generated directly after the previous
-//		EdgeCollider2D ec = newFloor.GetComponent<EdgeCollider2D>() as EdgeCollider2D;
-//		float offset = ec.bounds.extents.x - boxCollider.size.x/2 + distance;
-//
-//		newFloor.transform.position = new Vector2(
-//			other.bounds.max.x + offset,
-//			other.bounds.max.y
-//		);
-//
-//
-//		newFloor.translatableValue = worldTranslatableValue;
+	private void generateAndRandomlyPlaceCloudInstance()
+	{
+		Vector3 point = Camera.main.ViewportToWorldPoint(
+			new Vector3(Random.Range(0f, 1.0f), 0, Camera.main.nearClipPlane)
+		);
+		
+		Cloud newCloud = Instantiate(
+			cloud,
+			new Vector2(point.x, cloudYPosition),
+			transform.rotation,
+			GetComponentInParent<Transform>()
+		);
+	}
+
+	/**
+	 * Hide initial cloud from which all instances are generated.  This is to ensure it never gets destroyed during play as it's the master copy
+	 */
+	private void moveInitialCloudOffCamera()
+	{
+		cloud.transform.position = new Vector2(0, -100.0f);
 	}
 }
