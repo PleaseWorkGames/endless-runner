@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class CloudGenerator : MonoBehaviour {
 
+	/**
+	 * Registry of Cloud instances
+	 */
+	public Cloud[] clouds;
+	
+	/**
+	 * Instance of Cloud from which to reproduce/instantiate dynamically at runtime
+	 */
 	public Cloud cloud;
 
 	public TranslatableValue worldTranslatableValue;
