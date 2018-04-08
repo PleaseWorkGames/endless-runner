@@ -50,7 +50,6 @@ public class CloudGenerator : MonoBehaviour {
 		bool shouldRandomlyGenerateXPosition = Mathf.Approximately(xPosition, 0.0f);
 
 		if (shouldRandomlyGenerateXPosition) {
-			Debug.Log("Randomly generating xPosition");
 			xPosition = Random.Range(0f, 1.0f);
 		}
 		
