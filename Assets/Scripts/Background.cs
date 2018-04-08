@@ -95,7 +95,7 @@ public class Background : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 		float tileWidth = backgroundImage.texture.width / backgroundImage.pixelsPerUnit;
 
 		GameObject first = backgroundTiles.First.Value;
