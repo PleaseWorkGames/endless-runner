@@ -113,10 +113,10 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape:
-      - - {x: -50, y: 50}
+      - - {x: -50, y: 48}
         - {x: -50, y: -50}
         - {x: 50, y: -50}
-        - {x: 50, y: 50}
+        - {x: 50, y: 48}
       tessellationDetail: 0
     - serializedVersion: 2
       name: bg-sprite-sheet_2

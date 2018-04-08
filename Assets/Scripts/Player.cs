@@ -51,6 +51,8 @@ public class Player : MonoBehaviour {
 	private BoxCollider2D initBoxCollider(){
 		BoxCollider2D bc = gameObject.AddComponent(typeof(BoxCollider2D)) as BoxCollider2D;
 
+		bc.size = new Vector2( .17f , .17f );
+
 		return bc;
 	}
 
