@@ -39,6 +39,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60da4bbbab8154672966543e1b130655, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Multipliers:
+  - xPosition: 0
+    multiplier: 0
+  - xPosition: 0
+    multiplier: 0
+  - xPosition: 0
+    multiplier: 0
   player: {fileID: 0}
 --- !u!222 &222552724119353696
 CanvasRenderer:

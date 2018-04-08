@@ -8,8 +8,8 @@ public class Score : TextAbstract
     [System.Serializable]
     public class Multiplier
     {
-        public float leftBound;
-        public float rightBound;
+//        private string name = "Boundary";
+        public float xPositionFromLeftOfScreen;
         public float multiplier = 1.0f;
     }
 
