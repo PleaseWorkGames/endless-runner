@@ -57,7 +57,8 @@ public class CloudGenerator : MonoBehaviour {
 			new Vector3(xPosition, 0, Camera.main.nearClipPlane)
 		);
 		
-		Cloud newCloud = Instantiate(
+		// instantiate new cloud instance
+		Instantiate(
 			cloud,
 			new Vector2(point.x, cloudYPosition),
 			transform.rotation,
