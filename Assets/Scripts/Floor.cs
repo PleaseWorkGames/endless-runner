@@ -30,6 +30,8 @@ public class Floor : MonoBehaviour {
 
 		rb.bodyType = RigidbodyType2D.Kinematic;
 
+		rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
+
 		return rb;
 	}
 
