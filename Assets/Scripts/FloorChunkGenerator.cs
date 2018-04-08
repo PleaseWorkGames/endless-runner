@@ -50,7 +50,7 @@ public class FloorChunkGenerator : MonoBehaviour {
 
 		newFloor.transform.position = new Vector2(
 				other.bounds.max.x + offset,
-				0
+				this.transform.position.y
 		);
 
 
