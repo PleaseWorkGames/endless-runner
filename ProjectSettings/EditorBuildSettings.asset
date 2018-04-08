@@ -4,4 +4,7 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Jumping-Prototype-Scene.unity
+    guid: 3ebadc3672a9dec489eb2e4f8ff26cf9
