@@ -1,16 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TextAbstract : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
+	protected Text text;
+
+	void Start() {
+		text = gameObject.GetComponent<Text>() as Text;
+
+		if ( text == null ) {
+			text = initText();
+		}
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+
+	protected Text initText() {
+		Text result = gameObject.AddComponent(typeof(Text)) as Text;
+
+		result.font = Resources.GetBuiltinResource(typeof(Font), "Arial.ttf") as Font;
+
+		return result;
 	}
 }
