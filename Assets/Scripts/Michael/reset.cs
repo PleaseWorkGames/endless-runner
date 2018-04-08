@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class reset : MonoBehaviour {
+public class Reset : MonoBehaviour {
 
 	// Use this for initialization
-	void Start () {
+	public void Start () {
 		SceneManager.LoadScene ("Prototype");
 	}
 }
