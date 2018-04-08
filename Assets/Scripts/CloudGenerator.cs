@@ -34,9 +34,9 @@ public class CloudGenerator : MonoBehaviour {
 		}
 	}
 	
-	void Update ()
+	void FixedUpdate ()
 	{
-		bool shouldGenerateNewCloudInstance = Random.Range(0, 1000) == BLAZE_IT;
+		bool shouldGenerateNewCloudInstance = Random.Range(0, 421) == BLAZE_IT;
 
 		if (!shouldGenerateNewCloudInstance) {
 			return;
