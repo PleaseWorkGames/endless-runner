@@ -1,12 +1,12 @@
 fileFormatVersion: 2
-guid: 45bd07b7036278f4fb530ce35c899954
-timeCreated: 1520788240
+guid: 87f18058ff12dbd429d5bda5636d86dd
+timeCreated: 1523201457
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: ground-block
-    21300002: ground-upslope
-    21300004: ground-downslope
+    21300000: bg-sprite-sheet_0
+    21300002: bg-sprite-sheet_1
+    21300004: bg-sprite-sheet_2
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -48,8 +48,9 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 88
+  spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -79,114 +80,64 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - buildTarget: iPhone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-  - buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-  - buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ground-block
+      name: bg-sprite-sheet_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 616
-        width: 88
-        height: 88
+        y: 0
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -44, y: -44}
-        - {x: -44, y: 44}
-        - {x: 44, y: 44}
-        - {x: 44, y: -44}
+      outline: []
       physicsShape:
-      - - {x: -44, y: 44}
-        - {x: -44, y: -44}
-        - {x: 44, y: -44}
-        - {x: 44, y: 44}
+      - - {x: -50, y: -50}
+        - {x: 50, y: -50}
+        - {x: 50, y: 50}
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ground-upslope
+      name: bg-sprite-sheet_1
       rect:
         serializedVersion: 2
-        x: 88
-        y: 616
-        width: 88
-        height: 88
+        x: 100
+        y: 0
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 24, y: 44}
-        - {x: -41, y: -13}
-        - {x: -44, y: -28}
-        - {x: -44, y: -44}
-        - {x: 44, y: -44}
-        - {x: 44, y: 44}
+      outline: []
       physicsShape:
-      - - {x: 34.27028, y: 44}
-        - {x: -44, y: -33.456055}
-        - {x: -44, y: -44}
-        - {x: 44, y: -44}
-        - {x: 44, y: 44}
+      - - {x: -50, y: 50}
+        - {x: -50, y: -50}
+        - {x: 50, y: -50}
+        - {x: 50, y: 50}
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ground-downslope
+      name: bg-sprite-sheet_2
       rect:
         serializedVersion: 2
-        x: 176
-        y: 616
-        width: 88
-        height: 88
+        x: 200
+        y: 0
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -30, y: 44}
-        - {x: -44, y: 44}
-        - {x: -44, y: -44}
-        - {x: 44, y: -44}
-        - {x: 44, y: -23}
-        - {x: 18, y: 6}
+      outline: []
       physicsShape:
-      - - {x: -33.530396, y: 44}
-        - {x: -44, y: 44}
-        - {x: -44, y: -44}
-        - {x: 44, y: -44}
-        - {x: 44, y: -33.591187}
+      - - {x: -50, y: 50}
+        - {x: -50, y: -50}
+        - {x: 50, y: -50}
       tessellationDetail: 0
     outline: []
     physicsShape: []
-  spritePackingTag: tiles
+  spritePackingTag: 
   userData: 
   assetBundleName: 
   assetBundleVariant: 
