@@ -265,7 +265,7 @@ Prefab:
     - target: {fileID: 224621331539349238, guid: a15294f79772cb5439c94e8f892b9716,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -16.23999
+      value: -16.240234
       objectReference: {fileID: 0}
     - target: {fileID: 224621331539349238, guid: a15294f79772cb5439c94e8f892b9716,
         type: 2}
@@ -760,7 +760,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21d39b9dffd46414790e7207e5a9b5c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  foregroundX: -1
+  foregroundX: -3
   backgroundX: -0.5
 --- !u!4 &1330197336
 Transform:
@@ -1035,7 +1035,7 @@ Prefab:
     - target: {fileID: 224507461576428896, guid: c6e22824fbb164b9bb32eb95d1ce8de8,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -34.23999
+      value: -34.240234
       objectReference: {fileID: 0}
     - target: {fileID: 224507461576428896, guid: c6e22824fbb164b9bb32eb95d1ce8de8,
         type: 2}

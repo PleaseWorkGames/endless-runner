@@ -10,7 +10,7 @@ public class Player : MonoBehaviour {
 
 	private PlayerController controller;
 
-	private BoxCollider2D bc;
+	private CircleCollider2D cc;
 
 	// Use this for initialization
 	void Start ()
@@ -36,24 +36,25 @@ public class Player : MonoBehaviour {
 			initRigidBody();			
 		}
 
-		bc = gameObject.GetComponent<BoxCollider2D>() as BoxCollider2D;
-		if(bc == null){
-			bc = initBoxCollider();
+		cc = gameObject.GetComponent<CircleCollider2D>() as CircleCollider2D;
+		if(cc == null){
+			cc = initCircleCollider();
 		}
 	}
 
 	private Rigidbody2D initRigidBody(){
 		Rigidbody2D rb = gameObject.AddComponent(typeof(Rigidbody2D)) as Rigidbody2D;
 
+		rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
+		rb.freezeRotation = true;
+
 		return rb;
 	}
 
-	private BoxCollider2D initBoxCollider(){
-		BoxCollider2D bc = gameObject.AddComponent(typeof(BoxCollider2D)) as BoxCollider2D;
+	private CircleCollider2D initCircleCollider(){
+		CircleCollider2D cc = gameObject.AddComponent(typeof(CircleCollider2D)) as CircleCollider2D;
 
-		bc.size = new Vector2( .17f , .17f );
-
-		return bc;
+		return cc;
 	}
 
 	/**
