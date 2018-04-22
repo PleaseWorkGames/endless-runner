@@ -1115,6 +1115,36 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 552762082}
+    - target: {fileID: 114995535879379908, guid: c6e22824fbb164b9bb32eb95d1ce8de8,
+        type: 2}
+      propertyPath: Multipliers.Array.data[0].fractionalPositionFromLeftOfScreen
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114995535879379908, guid: c6e22824fbb164b9bb32eb95d1ce8de8,
+        type: 2}
+      propertyPath: Multipliers.Array.data[0].multiplier
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114995535879379908, guid: c6e22824fbb164b9bb32eb95d1ce8de8,
+        type: 2}
+      propertyPath: Multipliers.Array.data[1].fractionalPositionFromLeftOfScreen
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114995535879379908, guid: c6e22824fbb164b9bb32eb95d1ce8de8,
+        type: 2}
+      propertyPath: Multipliers.Array.data[1].multiplier
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114995535879379908, guid: c6e22824fbb164b9bb32eb95d1ce8de8,
+        type: 2}
+      propertyPath: Multipliers.Array.data[2].fractionalPositionFromLeftOfScreen
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114995535879379908, guid: c6e22824fbb164b9bb32eb95d1ce8de8,
+        type: 2}
+      propertyPath: Multipliers.Array.data[2].multiplier
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c6e22824fbb164b9bb32eb95d1ce8de8, type: 2}
   m_IsPrefabParent: 0

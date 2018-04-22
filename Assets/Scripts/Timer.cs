@@ -9,7 +9,7 @@ public class Timer : TextAbstract {
 	
 	public int precision = 2;
 
-	void Update () {
+	void FixedUpdate () {
 		time += Time.deltaTime;
 
 		float precisionModifier = Mathf.Pow(10, precision);

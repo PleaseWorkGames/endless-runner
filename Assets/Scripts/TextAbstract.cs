@@ -7,7 +7,7 @@ public class TextAbstract : MonoBehaviour {
 
 	protected Text text;
 
-	void Start() {
+	protected void Start() {
 		text = gameObject.GetComponent<Text>() as Text;
 
 		if ( text == null ) {

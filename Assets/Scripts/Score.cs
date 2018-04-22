@@ -8,8 +8,7 @@ public class Score : TextAbstract
     [System.Serializable]
     public class Multiplier
     {
-//        private string name = "Boundary";
-        public float xPositionFromLeftOfScreen;
+        public float fractionalPositionFromLeftOfScreen;
         public float multiplier = 1.0f;
     }
 
@@ -19,14 +18,41 @@ public class Score : TextAbstract
 
     private float score = 0;
     
+    private float defaultMulutiplier = 1.0f;
+    
     private float multiplier = 1.0f;
     
     public Player player;
 
-    void Update()
+    protected new void Start()
     {
-        time += (Time.deltaTime * multiplier);
+        base.Start();
+    }
+    
+    void FixedUpdate()
+    {
+        multiplier = defaultMulutiplier; 
         
-        text.text = "Score: " + Mathf.Round(time);
+        Vector3 playerPosition = Camera.main.WorldToScreenPoint(player.transform.position);
+        float screenWidth = Screen.width;
+
+        float currentFractionalPositionFromLeftOfScreen = playerPosition.x / screenWidth;        
+        
+        for (int i = 0; i < Multipliers.Length; i += 1) {
+            var multiplierConfigInstance = Multipliers[i];
+            bool isInMultiplierRange = ( // TODO - need to re-evaluate this to test currentFractionalPositionFromLeftOfScreen between previous multiplierConfigInstance.fractionalPositionFromLeftOfScreen and current multiplierConfigInstance.fractionalPositionFromLeftOfScreen 
+                currentFractionalPositionFromLeftOfScreen >=
+                multiplierConfigInstance.fractionalPositionFromLeftOfScreen
+            );
+
+            if (isInMultiplierRange) {
+                multiplier = multiplierConfigInstance.multiplier;
+            }
+        }
+        
+        Debug.Log(multiplier);
+        
+        score += (Time.deltaTime * multiplier);
+        text.text = "Score: " + Mathf.Round(score);
     }
 }
