@@ -617,6 +617,39 @@ Prefab:
       propertyPath: translateDistance
       value: 
       objectReference: {fileID: 1330197335}
+    - target: {fileID: 212056103989869508, guid: beade4c2da7ef4ff188a00d1da4bc986,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5cd8f2c1d57cf495a80be204e566f212,
+        type: 3}
+    - target: {fileID: 212056103989869508, guid: beade4c2da7ef4ff188a00d1da4bc986,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 0.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 212056103989869508, guid: beade4c2da7ef4ff188a00d1da4bc986,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 0.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 212056103989869508, guid: beade4c2da7ef4ff188a00d1da4bc986,
+        type: 2}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4658798315012350, guid: beade4c2da7ef4ff188a00d1da4bc986, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4658798315012350, guid: beade4c2da7ef4ff188a00d1da4bc986, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4658798315012350, guid: beade4c2da7ef4ff188a00d1da4bc986, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: beade4c2da7ef4ff188a00d1da4bc986, type: 2}
   m_IsPrefabParent: 0
