@@ -18,7 +18,7 @@ public class Score : TextAbstract
 
     private float score = 0;
     
-    private float defaultMulutiplier = 1.0f;
+    private float defaultMultiplier = 1.0f;
     
     private float multiplier = 1.0f;
     
@@ -32,27 +32,29 @@ public class Score : TextAbstract
     
     void FixedUpdate()
     {
-        multiplier = defaultMulutiplier; 
+        multiplier = defaultMultiplier; 
         
         Vector3 playerPosition = Camera.main.WorldToScreenPoint(player.transform.position);
 
-        float currentFractionalPositionFromLeftOfScreen = playerPosition.x / Screen.width;        
+        float currentFractionalPositionFromLeftOfScreen = playerPosition.x / Screen.width;
+        float previousMultiplierConfigFractionalPosition = 0.0f;
         
         for (int i = 0; i < Multipliers.Length; i += 1) {
-            var multiplierConfigInstance = Multipliers[i];
-            bool isInMultiplierRange = ( // TODO - need to re-evaluate this to test currentFractionalPositionFromLeftOfScreen between previous multiplierConfigInstance.fractionalPositionFromLeftOfScreen and current multiplierConfigInstance.fractionalPositionFromLeftOfScreen 
-                currentFractionalPositionFromLeftOfScreen >=
-                multiplierConfigInstance.fractionalPositionFromLeftOfScreen
+            var currentMultiplierConfigInstance = Multipliers[i];
+            
+            bool isInMultiplierRange = ( 
+                (currentFractionalPositionFromLeftOfScreen >= previousMultiplierConfigFractionalPosition) &&
+                (currentFractionalPositionFromLeftOfScreen < currentMultiplierConfigInstance.fractionalPositionFromLeftOfScreen)
             );
 
             if (isInMultiplierRange) {
-                multiplier = multiplierConfigInstance.multiplier;
+                multiplier = currentMultiplierConfigInstance.multiplier;
             }
+
+            previousMultiplierConfigFractionalPosition = currentMultiplierConfigInstance.fractionalPositionFromLeftOfScreen;
         }
         
-        Debug.Log(multiplier);
-        
         score += (Time.deltaTime * multiplier);
-        text.text = "Score: " + Mathf.Round(score);
+        text.text = "Score: " + Mathf.Round(score) + (Debug.isDebugBuild ? "\nMultiplier: " + multiplier : "");
     }
 }
