@@ -26,6 +26,7 @@ public class Score : TextAbstract
 
     protected new void Start()
     {
+        // TODO - ensure Multipliers array is ordered by fractionalPositionFromLeftOfScreen ascending 
         base.Start();
     }
     
@@ -34,9 +35,8 @@ public class Score : TextAbstract
         multiplier = defaultMulutiplier; 
         
         Vector3 playerPosition = Camera.main.WorldToScreenPoint(player.transform.position);
-        float screenWidth = Screen.width;
 
-        float currentFractionalPositionFromLeftOfScreen = playerPosition.x / screenWidth;        
+        float currentFractionalPositionFromLeftOfScreen = playerPosition.x / Screen.width;        
         
         for (int i = 0; i < Multipliers.Length; i += 1) {
             var multiplierConfigInstance = Multipliers[i];
